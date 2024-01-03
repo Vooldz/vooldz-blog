@@ -19,14 +19,22 @@ Copy the .env.example file to .env: `cp .env.example .env`
 Generate an app encryption key: `php artisan key:generate`
 Run database migrations And Seed the database: `php artisan migrate --seed`
 Install filament: `composer require filament/filament:"^3.1" -W`
-Start the server: `php artisan serve`
-
+Enter the file `livewire.php` then set this code in the bottom: `'asset_url' => 'vooldz-blog/public/livewire/livewire.js'` 
+Enter the file `RouteServiceProvider` then set this code in the `boot` method: `Livewire::setUpdateRoute(function ($handle) {
+            $url =  'vooldz-blog/public/livewire/update';
+            return Route::post($url, $handle);
+        });`
+You must use Localhost Don't use php artisan serve.
+You may face some delay you can enter the `.env` file and set the `APP_DEBUG` TO `false`
+And remeber that this code will run localy that mean will use your device resources so it's normal to experience some delay
 
 ## Usage
 
-Now, you can access the application in your browser at `http://localhost:8000`
+Now, you can access the application in your browser at `localhost/vooldz-blog/public`
 
-After installing the project, you can start using it. To log in to the admin panel, navigate to `http://localhost:8000/admin` and enter using `vooldz@gmail.com` and the password `12345678`.
+After installing the project, you can start using it. To log in to the admin panel, navigate to `localhost/vooldz-blog/public/admin` and enter using `vooldz@gmail.com` and the password `12345678`.
+
+
 
 
 ## Contributing
