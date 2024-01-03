@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :meta-description="$widget->title">
     <div class="container mx-auto flex flex-wrap py-6">
 
         <!-- Post Section -->

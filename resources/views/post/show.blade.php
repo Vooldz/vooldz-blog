@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :meta-title="$post->meta_title ?: $post->title" :meta-description="$post->meta_description" :meta-author="auth()->user()->name">
     <div class="container mx-auto flex flex-wrap py-6">
 
         <!-- Post Section -->
@@ -6,7 +6,7 @@
 
             <article class="flex flex-col shadow my-4">
                 <!-- Article Image -->
-                <a href="#" class="hover:opacity-75">
+                <a href="#">
                     <img src="{{ $post->getThumbnail() }}" alt="Post Image">
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6">

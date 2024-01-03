@@ -16,7 +16,7 @@ Clone the repository: `git clone https://github.com/Vooldz/vooldz-blog.git`
 Navigate into the project directory: `cd vooldz-blog`
 Install dependencies: `composer install`
 Copy the .env.example file to .env: `cp .env.example .env`
-Generate an app encryption key: php artisan `key:generate`
+Generate an app encryption key: `php artisan key:generate`
 Run database migrations And Seed the database: `php artisan migrate --seed`
 Install filament: `composer require filament/filament:"^3.1" -W`
 Start the server: `php artisan serve`

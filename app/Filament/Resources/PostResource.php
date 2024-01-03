@@ -2,15 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
+use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Filament\Tables;
+use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Forms\Components\FileUpload;
-use App\Filament\Resources\PostResource\Pages;
 
 class PostResource extends Resource
 {
@@ -42,6 +41,8 @@ class PostResource extends Resource
                         Forms\Components\RichEditor::make('body')
                             ->required()
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('meta_title'),
+                        Forms\Components\TextInput::make('meta_description'),
                         Forms\Components\Toggle::make('active')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at')
@@ -50,7 +51,7 @@ class PostResource extends Resource
                             ->maxDate(now())
                             ->required(),
                     ])->columnSpan(8),
-                    Forms\Components\Card::make()
+                Forms\Components\Card::make()
                     ->schema([
                         Forms\Components\FileUpload::make('thumbnail'),
                         Forms\Components\Select::make('category')
@@ -69,7 +70,7 @@ class PostResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('body')
-                ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable()

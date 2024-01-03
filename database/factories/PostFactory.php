@@ -25,7 +25,9 @@ class PostFactory extends Factory
             'body' => fake()->realText(5000),
             'active' =>'1',
             'published_at' => fake()->dateTimeThisYear(),
-            'user_id' => 1
+            'user_id' => 1,
+            'meta_title' =>  'VOOLDZ Blog - ' . $title,
+            'meta_description' => fake()->realText(254),
         ];
     }
 }

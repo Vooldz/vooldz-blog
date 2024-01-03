@@ -12,9 +12,9 @@ class AppLayout extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public ?string $metaTitle = null, public ?string $metaDescription = null, public ?string $metaAuthor = 'null')
     {
-        //
+        
     }
 
     /**
@@ -22,6 +22,7 @@ class AppLayout extends Component
      */
     public function render(): View|Closure|string
     {
+        
         $categories = DB::table('categories')
         ->leftjoin('category_posts', 'categories.id', '=', 'category_posts.category_id')
         ->select('title', 'slug', 'categories.id', DB::raw('count(*) as total'))

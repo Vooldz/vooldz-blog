@@ -97,6 +97,6 @@ class PostController extends Controller
         ->orderBy('published_at', 'desc')
         ->paginate(5);
 
-        return view('home', compact('posts'));
+        return view('post.index', compact('posts', 'category'));
     }
 }
